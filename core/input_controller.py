@@ -185,13 +185,13 @@ class InputController:
         sleep_click_pre(self._click_profile)
         self._backend_mouse_down(button)
 
-        # Move to end with button held — use pyautogui drag for smoothness
+        # Move to end with button held — use moveTo (not dragTo, which does its
+        # own mouseDown/mouseUp internally and would double-press the button)
         if self._pyautogui:
             drag_dur = duration or 0.4
-            self._pyautogui.dragTo(
+            self._pyautogui.moveTo(
                 int(end_x), int(end_y),
                 duration=drag_dur,
-                button=button,
             )
         else:
             self._engine.move(end_x, end_y, duration=duration)

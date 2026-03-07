@@ -1,0 +1,326 @@
+[
+  {
+    "type": "Wait",
+    "seconds": 1.0
+  },
+  {
+    "type": "Hotkey",
+    "keys": "win+r"
+  },
+  {
+    "type": "Wait",
+    "seconds": 0.8
+  },
+  {
+    "type": "Type Text",
+    "text": "notepad"
+  },
+  {
+    "type": "Hotkey",
+    "keys": "enter"
+  },
+  {
+    "type": "Wait",
+    "seconds": 1.5
+  },
+  {
+    "type": "Type Text",
+    "text": "Automation session started."
+  },
+  {
+    "type": "Hotkey",
+    "keys": "enter"
+  },
+  {
+    "type": "Wait",
+    "seconds": 0.6
+  },
+  {
+    "type": "Type Text",
+    "text": "Testing human-like typing with variable speed and natural pauses."
+  },
+  {
+    "type": "Hotkey",
+    "keys": "enter"
+  },
+  {
+    "type": "Wait",
+    "seconds": 1.2
+  },
+  {
+    "type": "Type Text",
+    "text": "The quick brown fox jumps over the lazy dog."
+  },
+  {
+    "type": "Hotkey",
+    "keys": "enter"
+  },
+  {
+    "type": "Wait",
+    "seconds": 0.9
+  },
+  {
+    "type": "Hotkey",
+    "keys": "ctrl+a"
+  },
+  {
+    "type": "Wait",
+    "seconds": 0.5
+  },
+  {
+    "type": "Hotkey",
+    "keys": "ctrl+c"
+  },
+  {
+    "type": "Wait",
+    "seconds": 0.4
+  },
+  {
+    "type": "Hotkey",
+    "keys": "end"
+  },
+  {
+    "type": "Hotkey",
+    "keys": "enter"
+  },
+  {
+    "type": "Wait",
+    "seconds": 0.7
+  },
+  {
+    "type": "Type Text",
+    "text": "Performing a select-all and copy..."
+  },
+  {
+    "type": "Hotkey",
+    "keys": "enter"
+  },
+  {
+    "type": "Wait",
+    "seconds": 1.0
+  },
+  {
+    "type": "Type Text",
+    "text": "Now pasting the copied text below:"
+  },
+  {
+    "type": "Hotkey",
+    "keys": "enter"
+  },
+  {
+    "type": "Wait",
+    "seconds": 0.5
+  },
+  {
+    "type": "Hotkey",
+    "keys": "ctrl+v"
+  },
+  {
+    "type": "Wait",
+    "seconds": 1.0
+  },
+  {
+    "type": "Hotkey",
+    "keys": "enter"
+  },
+  {
+    "type": "Type Text",
+    "text": "Navigating with keyboard shortcuts..."
+  },
+  {
+    "type": "Hotkey",
+    "keys": "enter"
+  },
+  {
+    "type": "Wait",
+    "seconds": 0.8
+  },
+  {
+    "type": "Hotkey",
+    "keys": "ctrl+home"
+  },
+  {
+    "type": "Wait",
+    "seconds": 0.6
+  },
+  {
+    "type": "Hotkey",
+    "keys": "ctrl+end"
+  },
+  {
+    "type": "Wait",
+    "seconds": 0.5
+  },
+  {
+    "type": "Type Text",
+    "text": "Reached end of document."
+  },
+  {
+    "type": "Hotkey",
+    "keys": "enter"
+  },
+  {
+    "type": "Wait",
+    "seconds": 1.3
+  },
+  {
+    "type": "Type Text",
+    "text": "Testing undo and redo operations now."
+  },
+  {
+    "type": "Hotkey",
+    "keys": "enter"
+  },
+  {
+    "type": "Wait",
+    "seconds": 0.7
+  },
+  {
+    "type": "Hotkey",
+    "keys": "ctrl+z"
+  },
+  {
+    "type": "Wait",
+    "seconds": 0.4
+  },
+  {
+    "type": "Hotkey",
+    "keys": "ctrl+z"
+  },
+  {
+    "type": "Wait",
+    "seconds": 0.4
+  },
+  {
+    "type": "Hotkey",
+    "keys": "ctrl+y"
+  },
+  {
+    "type": "Wait",
+    "seconds": 0.6
+  },
+  {
+    "type": "Hotkey",
+    "keys": "ctrl+y"
+  },
+  {
+    "type": "Wait",
+    "seconds": 0.8
+  },
+  {
+    "type": "Hotkey",
+    "keys": "ctrl+end"
+  },
+  {
+    "type": "Hotkey",
+    "keys": "enter"
+  },
+  {
+    "type": "Type Text",
+    "text": "Opening Find dialog to search for text."
+  },
+  {
+    "type": "Hotkey",
+    "keys": "enter"
+  },
+  {
+    "type": "Wait",
+    "seconds": 1.0
+  },
+  {
+    "type": "Hotkey",
+    "keys": "ctrl+f"
+  },
+  {
+    "type": "Wait",
+    "seconds": 0.9
+  },
+  {
+    "type": "Type Text",
+    "text": "fox"
+  },
+  {
+    "type": "Wait",
+    "seconds": 0.7
+  },
+  {
+    "type": "Hotkey",
+    "keys": "enter"
+  },
+  {
+    "type": "Wait",
+    "seconds": 0.5
+  },
+  {
+    "type": "Hotkey",
+    "keys": "escape"
+  },
+  {
+    "type": "Wait",
+    "seconds": 0.8
+  },
+  {
+    "type": "Hotkey",
+    "keys": "ctrl+end"
+  },
+  {
+    "type": "Hotkey",
+    "keys": "enter"
+  },
+  {
+    "type": "Type Text",
+    "text": "Taking a screenshot now."
+  },
+  {
+    "type": "Hotkey",
+    "keys": "enter"
+  },
+  {
+    "type": "Wait",
+    "seconds": 0.5
+  },
+  {
+    "type": "Take Screenshot",
+    "path": "automation_screenshot.png"
+  },
+  {
+    "type": "Wait",
+    "seconds": 1.0
+  },
+  {
+    "type": "Type Text",
+    "text": "Screenshot saved. Workflow loop complete."
+  },
+  {
+    "type": "Hotkey",
+    "keys": "enter"
+  },
+  {
+    "type": "Wait",
+    "seconds": 1.5
+  },
+  {
+    "type": "Hotkey",
+    "keys": "ctrl+z"
+  },
+  {
+    "type": "Wait",
+    "seconds": 0.3
+  },
+  {
+    "type": "Hotkey",
+    "keys": "ctrl+z"
+  },
+  {
+    "type": "Wait",
+    "seconds": 0.3
+  },
+  {
+    "type": "Hotkey",
+    "keys": "ctrl+z"
+  },
+  {
+    "type": "Wait",
+    "seconds": 0.5
+  }
+]

@@ -1,0 +1,74 @@
+[
+  {
+    "type": "Hotkey",
+    "keys": "win+r"
+  },
+  {
+    "type": "Wait",
+    "seconds": 0.8
+  },
+  {
+    "type": "Type Text",
+    "text": "notepad"
+  },
+  {
+    "type": "Hotkey",
+    "keys": "enter"
+  },
+  {
+    "type": "Wait",
+    "seconds": 1.5
+  },
+  {
+    "type": "Minimize Window",
+    "window_title": "Notepad"
+  },
+  {
+    "type": "Wait",
+    "seconds": 0.5
+  },
+  {
+    "type": "Type to Window (Background)",
+    "window_title": "Notepad",
+    "text": "Line written in background without focus.\r\n"
+  },
+  {
+    "type": "Wait",
+    "seconds": 0.8
+  },
+  {
+    "type": "Type to Window (Background)",
+    "window_title": "Notepad",
+    "text": "The quick brown fox jumps over the lazy dog.\r\n"
+  },
+  {
+    "type": "Wait",
+    "seconds": 1.0
+  },
+  {
+    "type": "Type to Window (Background)",
+    "window_title": "Notepad",
+    "text": "Automation running headlessly in the background.\r\n"
+  },
+  {
+    "type": "Wait",
+    "seconds": 0.9
+  },
+  {
+    "type": "Type to Window (Background)",
+    "window_title": "Notepad",
+    "text": "You can use your PC normally while this runs.\r\n"
+  },
+  {
+    "type": "Wait",
+    "seconds": 1.2
+  },
+  {
+    "type": "Take Screenshot",
+    "path": "headless_screenshot.png"
+  },
+  {
+    "type": "Wait",
+    "seconds": 1.5
+  }
+]

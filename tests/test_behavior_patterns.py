@@ -8,8 +8,9 @@ import sys
 import time
 import unittest
 from unittest.mock import MagicMock, patch, call
+from pathlib import Path
 
-sys.path.insert(0, __file__.rsplit("/tests", 1)[0])
+sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from utils.timing_models import (
     ClickTimingProfile,

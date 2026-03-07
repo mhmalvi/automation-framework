@@ -13,7 +13,6 @@ movement:
 
   # Order in which adapters are tried when adapter = "all"
   fallback_chain:
-    - "human_mouse"
     - "pyclick"
     - "humancursor"
 

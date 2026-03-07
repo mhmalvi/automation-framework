@@ -17,7 +17,8 @@ import sys
 import time
 import logging
 
-sys.path.insert(0, __file__.rsplit("/examples", 1)[0])
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from core.typing_engine import TypingEngine
 from core.behavior_engine import BehaviorEngine

@@ -20,8 +20,9 @@ Run: python examples/vision_auto_click_demo.py
 import sys
 import time
 import logging
+from pathlib import Path
 
-sys.path.insert(0, __file__.rsplit("/examples", 1)[0])
+sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from vision.screen_capture import ScreenCapture
 from vision.template_matching import TemplateMatcher

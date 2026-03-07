@@ -104,13 +104,8 @@ class PyClickAdapter(BaseMovementAdapter):
         start = (current_x, current_y)
         end = (int(x), int(y))
 
-        if control_points:
-            all_points = [start] + [tuple(map(int, p)) for p in control_points] + [end]
-        else:
-            all_points = self._auto_control_points(start, end)
-
-        curve = self._bezier(all_points, self._PATH_STEPS)
-        path = curve.as_points()
+        curve = self._bezier(start, end)
+        path = curve.points
         self._execute_path(path, duration)
 
     # ------------------------------------------------------------------
@@ -122,49 +117,9 @@ class PyClickAdapter(BaseMovementAdapter):
         start: Tuple[int, int],
         end: Tuple[int, int],
     ) -> list:
-        """Generate a Bezier path from start to end with auto control points."""
-        points = self._auto_control_points(start, end)
-        curve = self._bezier(points, self._PATH_STEPS)
-        return curve.as_points()
-
-    def _auto_control_points(
-        self,
-        start: Tuple[int, int],
-        end: Tuple[int, int],
-    ) -> List[Tuple[int, int]]:
-        """
-        Auto-generate control points that create a natural curved path.
-
-        Applies perpendicular offsets scaled by distance to produce a gentle arc
-        rather than a straight line. Adds slight asymmetry for realism.
-        """
-        import random
-        import math
-
-        dx = end[0] - start[0]
-        dy = end[1] - start[1]
-        distance = math.hypot(dx, dy)
-
-        # Perpendicular direction
-        if distance > 0:
-            perp_x = -dy / distance
-            perp_y = dx / distance
-        else:
-            perp_x, perp_y = 0.0, 1.0
-
-        # Control point spread proportional to distance
-        spread = distance * random.uniform(0.2, 0.4)
-
-        # Two control points at ~33% and ~66% along the path, offset perpendicularly
-        cp1 = (
-            int(start[0] + dx * 0.33 + perp_x * spread * random.uniform(0.5, 1.0)),
-            int(start[1] + dy * 0.33 + perp_y * spread * random.uniform(0.5, 1.0)),
-        )
-        cp2 = (
-            int(start[0] + dx * 0.66 + perp_x * spread * random.uniform(-1.0, -0.5)),
-            int(start[1] + dy * 0.66 + perp_y * spread * random.uniform(-1.0, -0.5)),
-        )
-        return [start, cp1, cp2, end]
+        """Generate a HumanCurve path from start to end."""
+        curve = self._bezier(start, end)
+        return curve.points
 
     def _execute_path(self, path: list, duration: float) -> None:
         """Execute a list of (x, y) positions as a smooth cursor movement."""
@@ -179,21 +134,14 @@ class PyClickAdapter(BaseMovementAdapter):
 
     def _try_import(self) -> None:
         try:
-            from pyclick import HumanClicker, BezierCurve  # type: ignore[import]
+            from pyclick import HumanClicker, HumanCurve  # type: ignore[import]
             self._clicker = HumanClicker()
-            self._bezier = BezierCurve
+            self._bezier = HumanCurve
             logger.debug("pyclick adapter loaded successfully.")
         except ImportError:
-            try:
-                # Some versions only expose BezierCurve at top level
-                from pyclick import BezierCurve  # type: ignore[import]
-                self._bezier = BezierCurve
-                self._clicker = object()  # sentinel for is_available
-                logger.debug("pyclick (BezierCurve only) adapter loaded.")
-            except ImportError:
-                logger.debug(
-                    "pyclick not installed. Adapter unavailable. "
-                    "Install: pip install pyclick"
-                )
+            logger.debug(
+                "pyclick not installed. Adapter unavailable. "
+                "Install: pip install pyclick"
+            )
         except Exception as exc:
             logger.warning("pyclick adapter init failed: %s", exc)

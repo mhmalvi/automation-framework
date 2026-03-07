@@ -56,7 +56,6 @@ class HumanMouseAdapter(BaseMovementAdapter):
                 "human-mouse library is not installed. Run: pip install human-mouse"
             )
         try:
-            # human_mouse.HumanMouse().move(x, y) performs the curved motion
             self._instance.move(int(x), int(y))
             logger.debug("human_mouse: moved to (%d, %d)", int(x), int(y))
         except Exception as exc:
@@ -80,10 +79,13 @@ class HumanMouseAdapter(BaseMovementAdapter):
             raise RuntimeError("human-mouse library is not installed.")
         self.move_to(x, y)
         try:
-            self._instance.click(int(x), int(y), button=button)
-        except TypeError:
-            # Some versions don't support button parameter; fall back to left click
-            self._instance.click(int(x), int(y))
+            if button == "right":
+                self._instance.perform_context_click(int(x), int(y))
+            else:
+                self._instance.perform_click(int(x), int(y))
+        except Exception as exc:
+            logger.error("human_mouse click failed: %s", exc)
+            raise
 
     def drag_to(self, x: float, y: float) -> None:
         """
@@ -107,10 +109,9 @@ class HumanMouseAdapter(BaseMovementAdapter):
 
     def _try_import(self) -> None:
         try:
-            from human_mouse import HumanMouse  # type: ignore[import]
-            self._lib = HumanMouse
-            # Instantiate with moderate speed (1.0 = normal, higher = faster)
-            self._instance = HumanMouse()
+            from human_mouse import MouseController  # type: ignore[import]
+            self._lib = MouseController
+            self._instance = MouseController()
             logger.debug("human_mouse adapter loaded successfully.")
         except ImportError:
             logger.debug(

@@ -8,8 +8,9 @@ import sys
 import math
 import unittest
 from unittest.mock import MagicMock, patch, PropertyMock
+from pathlib import Path
 
-sys.path.insert(0, __file__.rsplit("/tests", 1)[0])
+sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from utils.randomness import (
     gaussian_delay,
