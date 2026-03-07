@@ -1,0 +1,73 @@
+# automation_config.yaml — Example configuration for automation_framework
+#
+# Place this file in your working directory or pass its path to ConfigLoader().
+# All settings have sensible defaults; only override what you need.
+
+movement:
+  # Adapter selection:
+  #   "all"         — try adapters in fallback_chain order (recommended)
+  #   "human_mouse" — use only the human_mouse library
+  #   "pyclick"     — use only PyClick's Bezier curves
+  #   "humancursor" — use only HumanCursor's Fitts's Law model
+  adapter: "all"
+
+  # Order in which adapters are tried when adapter = "all"
+  fallback_chain:
+    - "human_mouse"
+    - "pyclick"
+    - "humancursor"
+
+  # Overshoot fraction: cursor moves this % past target then corrects back
+  overshoot_factor: 0.03
+
+  # Movement duration bounds (seconds)
+  min_move_duration: 0.3
+  max_move_duration: 3.0
+
+  # Gaussian std dev for landing position jitter (pixels)
+  # Set to 0 to disable jitter
+  landing_jitter_std: 2.5
+
+behavior:
+  # Click timing profile: "fast" | "normal" | "cautious"
+  click_profile: "normal"
+
+  # Typing timing profile: "fast" | "normal" | "slow"
+  typing_profile: "normal"
+
+  # Probability of idle cursor micro-flick between actions [0.0–1.0]
+  # ~3% feels natural; set to 0 to disable
+  idle_flick_probability: 0.03
+
+  # Maximum pixel radius for idle flicks
+  idle_flick_radius: 40
+
+typing:
+  # Enable typo injection and correction simulation
+  enable_typos: true
+
+  # Override typo probability (null = use profile default ~2%)
+  # Set to 0.0 to always type perfectly
+  typo_probability: null
+
+  # Strings longer than this are pasted via clipboard instead of typed
+  paste_threshold: 80
+
+vision:
+  # Template matching confidence threshold [0.0–1.0]
+  # Higher = more strict, fewer false positives
+  match_confidence: 0.85
+
+  # Capture region: null = full screen
+  # Or specify [left, top, width, height]
+  capture_region: null
+
+  # Grayscale matching: faster but less accurate for color-sensitive elements
+  grayscale_matching: true
+
+logging:
+  # Log level: "DEBUG" | "INFO" | "WARNING" | "ERROR"
+  level: "INFO"
+
+  # Log to file (null = console only)
+  file: null

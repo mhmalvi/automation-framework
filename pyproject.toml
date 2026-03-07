@@ -1,0 +1,77 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "automation-framework"
+version = "0.1.0"
+description = "Human-like Windows automation framework combining human_mouse, PyClick, HumanCursor, and PyAutoGUI"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+    { name = "Muhammad H.M. Alvi", email = "info@aethonautomation.com" }
+]
+keywords = [
+    "automation", "mouse", "keyboard", "human-like", "pyautogui",
+    "computer-vision", "screen-capture", "bot-detection-evasion"
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: Microsoft :: Windows",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+    "pyautogui>=0.9.54",
+    "human-mouse>=0.1.0",
+    "pyclick>=0.0.2",
+    "humancursor>=1.0.2",
+    "numpy>=1.24.0",
+    "mss>=9.0.1",
+    "opencv-python>=4.8.0",
+    "pyperclip>=1.8.2",
+    "PyYAML>=6.0",
+]
+
+[project.optional-dependencies]
+directinput = ["pydirectinput>=1.0.4"]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-cov>=4.1.0",
+]
+all = [
+    "automation-framework[directinput,dev]",
+]
+
+[project.urls]
+Homepage = "https://aethonautomation.com"
+Repository = "https://github.com/aethonautomation/automation-framework"
+"Bug Tracker" = "https://github.com/aethonautomation/automation-framework/issues"
+
+[tool.setuptools.packages.find]
+include = ["core*", "vision*", "movement_adapters*", "utils*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v --tb=short"
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+
+[tool.coverage.run]
+source = ["core", "vision", "movement_adapters", "utils"]
+omit = ["tests/*", "examples/*"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "if __name__ == .__main__.:",
+    "except ImportError",
+    "raise RuntimeError",
+]

@@ -1,0 +1,45 @@
+# ============================================================
+# automation_framework — Python dependencies
+# ============================================================
+# Python 3.10+ required
+
+# ----------------------------------------------------------
+# Core input execution
+# ----------------------------------------------------------
+pyautogui>=0.9.54
+
+# ----------------------------------------------------------
+# Human-like mouse movement libraries
+# Three adapters — install all for full fallback chain support
+# ----------------------------------------------------------
+human-mouse>=0.1.0          # https://github.com/sarperavci/human_mouse
+pyclick>=0.0.2              # https://github.com/patrikoss/pyclick
+humancursor>=1.0.2          # https://github.com/riflosnake/HumanCursor
+
+# ----------------------------------------------------------
+# Vision layer
+# ----------------------------------------------------------
+numpy>=1.24.0               # Array processing (required by vision layer)
+mss>=9.0.1                  # Fast multi-monitor screen capture
+opencv-python>=4.8.0        # Computer vision (template matching, detection)
+
+# ----------------------------------------------------------
+# Optional: DirectInput for games / DirectX applications
+# ----------------------------------------------------------
+# pydirectinput>=1.0.4      # Uncomment if targeting DirectX apps
+
+# ----------------------------------------------------------
+# Optional: Clipboard paste support (for long-text typing)
+# ----------------------------------------------------------
+pyperclip>=1.8.2
+
+# ----------------------------------------------------------
+# Optional: YAML config file support
+# ----------------------------------------------------------
+PyYAML>=6.0
+
+# ----------------------------------------------------------
+# Development / testing
+# ----------------------------------------------------------
+pytest>=7.4.0
+pytest-cov>=4.1.0
