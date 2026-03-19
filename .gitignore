@@ -40,3 +40,9 @@ Thumbs.db
 # Config overrides (keep automation_config.yaml as example, ignore local overrides)
 automation_config.local.yaml
 automation_config.local.json
+# Security
+.env
+.env.*
+credentials.json
+serviceAccountKey.json
+.claude/
