@@ -1,5 +1,7 @@
 # automation_framework
 
+![automation-framework](docs/assets/social-card.png)
+
 A professional-grade Python automation framework for Windows 10/11 that produces natural, human-like keyboard and mouse interactions.
 
 Integrates and extends three open-source motion libraries — **human_mouse**, **PyClick**, and **HumanCursor** — with a modular behavior engine, statistical timing models, and an OpenCV vision layer.
