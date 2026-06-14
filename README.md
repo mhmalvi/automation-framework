@@ -1,3 +1,8 @@
+<!-- repo-card -->
+![automation-framework](docs/assets/social-card.png)
+
+![automation-framework — architecture](docs/assets/architecture.png)
+
 # automation_framework
 
 ![automation-framework](docs/assets/social-card.png)
